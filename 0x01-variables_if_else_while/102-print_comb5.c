@@ -13,7 +13,7 @@ int main(void)
 	int l_d;
 
 	int c2;
-	int f_d;
+	int f_d2;
 	int l_d2;
 
 	while (c <= 98)
@@ -46,4 +46,5 @@ int main(void)
 		c++;
 	}
 	putchar('\n');
+	return (0);
 }
