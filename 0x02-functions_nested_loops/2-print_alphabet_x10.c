@@ -2,8 +2,8 @@
 
 /**
  *
- * print_alphabet_x10.c - prints the lowercase alphabets
- *
+ *print_alphabet_x10.c - prints the lowercase alphabets
+ * 
  */
 
 void print_alphabet_x10(void)
