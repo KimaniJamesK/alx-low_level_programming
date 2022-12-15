@@ -4,9 +4,9 @@
  * @n: the passed args
  * Return: the last digit 
  */
-int print_last_digit(int)
+int print_last_digit(int n)
 {
-	int x ;
+	int x;
 
 	if (n < 0)
 		n = -n;
