@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -45,16 +46,16 @@ void close_file(int fd)
  * @argv: An array of pointers to the arguments
  * Return: 0 on success
  * Description: if the argument count is incorrect - exit code 97
- * 		if file_from does not exist or cannot be read - exit code 98
- * 		if file_to cannot be created or written to - exit code 99
- * 		if file_to or file_from cannot be closed - exit code 100
+ * if file_from does not exist or cannot be read - exit code 98
+ * if file_to cannot be created or written to - exit code 99
+ * if file_to or file_from cannot be closed - exit code 100
  */
-int main(int argc, char * argv[])
+int main(int argc, char *argv[])
 {
 	int from, to, r, w;
 	char *buffer;
 
-	if (argc, char * argv[])
+	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
@@ -63,7 +64,7 @@ int main(int argc, char * argv[])
 	buffer = create_buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
 	r = read(from, buffer, 1024);
-	to = open(argv[2], O_CREATE | O_WRONLY | O_TRUNC, 0664);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
 		if (from == -1 || r == -1)
@@ -76,7 +77,7 @@ int main(int argc, char * argv[])
 		w = write(to, buffer, r);
 		if (to == -1 || w == -1)
 		{
-			dprintf(STDERR_FILENO, 
+			dprintf(STDERR_FILENO,
 					"Error: Cant't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
